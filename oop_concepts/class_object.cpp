@@ -12,7 +12,7 @@
 #include <iostream>
 #include <string>
 
-#define ACTIVE_THIS_MAIN      ( 0 )
+#define ENABLE_THIS_MAIN      ( 0 )
 
 class student
 {
@@ -42,7 +42,7 @@ void student::print_student_info()
     std::cout << "age: " << age << std::endl;
 }
 
-#if ACTIVE_THIS_MAIN
+#if ENABLE_THIS_MAIN
 
 int main(void)
 {

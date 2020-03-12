@@ -4,6 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        abstraction.cpp \
         class_object.cpp \
         encapsulation.cpp \
-        main.cpp
+        function_overloading.cpp \
+        main.cpp \
+        operator_overloading.cpp \
+        polymorphism.cpp

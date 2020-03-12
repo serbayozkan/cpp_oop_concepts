@@ -13,7 +13,7 @@
 
 #include <iostream>
 
-#define ACTIVE_THIS_MAIN      ( 1 )
+#define ENABLE_THIS_MAIN      ( 0 )
 
 class student
 {
@@ -63,7 +63,7 @@ int student::get_age()
 }
 
 
-#if ACTIVE_THIS_MAIN
+#if ENABLE_THIS_MAIN
 
 int main(void)
 {
