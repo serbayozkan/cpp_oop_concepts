@@ -1,0 +1,17 @@
+/*
+ * Static Binding
+ *
+ * By default, matching of function call with the correct function definition
+ * happens at compile time. This is called static binding or early binding or compile time binding.
+ * Static binding is achived using function overloading or operator overloading.
+ *
+ * Dynamic Binding
+ *
+ * Cpp provides facility to specify that the compiler should match fuction calls with the correct
+ * definition at the run time; this is called dynamic binding or late binding or run-time binding.
+ *
+ * Dynamic binding is achieved using virtual functions. Base class pointer points to derived class object.
+ * And a function is declared virtual in base class, then the matching function is identified at run time
+ * using virtual table entry
+ *
+ */

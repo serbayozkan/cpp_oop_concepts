@@ -23,7 +23,7 @@ class className
 #include <iostream>
 #include "math.h"
 
-#define ENABLE_THIS_MAIN      ( 1 )
+#define ENABLE_THIS_MAIN      ( 0 )
 
 class increment_op
 {

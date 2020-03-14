@@ -52,12 +52,24 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../oop_concepts/class_object.cpp \
+SOURCES       = ../oop_concepts/abstraction.cpp \
+		../oop_concepts/class_object.cpp \
 		../oop_concepts/encapsulation.cpp \
-		../oop_concepts/main.cpp 
-OBJECTS       = class_object.o \
+		../oop_concepts/function_overloading.cpp \
+		../oop_concepts/function_overriding.cpp \
+		../oop_concepts/inheritance.cpp \
+		../oop_concepts/main.cpp \
+		../oop_concepts/operator_overloading.cpp \
+		../oop_concepts/polymorphism.cpp 
+OBJECTS       = abstraction.o \
+		class_object.o \
 		encapsulation.o \
-		main.o
+		function_overloading.o \
+		function_overriding.o \
+		inheritance.o \
+		main.o \
+		operator_overloading.o \
+		polymorphism.o
 DIST          = /home/serbay/Qt/5.14.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/common/unix.conf \
 		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/common/linux.conf \
@@ -262,9 +274,15 @@ DIST          = /home/serbay/Qt/5.14.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/features/exceptions.prf \
 		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/features/yacc.prf \
 		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/features/lex.prf \
-		../oop_concepts/oop_concepts.pro  ../oop_concepts/class_object.cpp \
+		../oop_concepts/oop_concepts.pro  ../oop_concepts/abstraction.cpp \
+		../oop_concepts/class_object.cpp \
 		../oop_concepts/encapsulation.cpp \
-		../oop_concepts/main.cpp
+		../oop_concepts/function_overloading.cpp \
+		../oop_concepts/function_overriding.cpp \
+		../oop_concepts/inheritance.cpp \
+		../oop_concepts/main.cpp \
+		../oop_concepts/operator_overloading.cpp \
+		../oop_concepts/polymorphism.cpp
 QMAKE_TARGET  = oop_concepts
 DESTDIR       = 
 TARGET        = oop_concepts
@@ -730,14 +748,32 @@ compiler_clean:
 
 ####### Compile
 
+abstraction.o: ../oop_concepts/abstraction.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o abstraction.o ../oop_concepts/abstraction.cpp
+
 class_object.o: ../oop_concepts/class_object.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o class_object.o ../oop_concepts/class_object.cpp
 
 encapsulation.o: ../oop_concepts/encapsulation.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o encapsulation.o ../oop_concepts/encapsulation.cpp
 
+function_overloading.o: ../oop_concepts/function_overloading.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o function_overloading.o ../oop_concepts/function_overloading.cpp
+
+function_overriding.o: ../oop_concepts/function_overriding.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o function_overriding.o ../oop_concepts/function_overriding.cpp
+
+inheritance.o: ../oop_concepts/inheritance.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o inheritance.o ../oop_concepts/inheritance.cpp
+
 main.o: ../oop_concepts/main.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../oop_concepts/main.cpp
+
+operator_overloading.o: ../oop_concepts/operator_overloading.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o operator_overloading.o ../oop_concepts/operator_overloading.cpp
+
+polymorphism.o: ../oop_concepts/polymorphism.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o polymorphism.o ../oop_concepts/polymorphism.cpp
 
 ####### Install
 

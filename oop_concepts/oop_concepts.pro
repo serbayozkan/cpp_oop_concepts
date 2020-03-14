@@ -8,6 +8,11 @@ SOURCES += \
         class_object.cpp \
         encapsulation.cpp \
         function_overloading.cpp \
-        main.cpp \
-        operator_overloading.cpp \
-        polymorphism.cpp
+        function_overriding.cpp \
+        inheritance.cpp \
+        operator_overloading.cpp
+
+DISTFILES += \
+    main.txt \
+    polymorphism.txt \
+    static_dynamic_binding.txt

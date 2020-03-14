@@ -6,7 +6,7 @@
  * at the same time is a father, a husband an employee. So the same person posses different
  * behaviour in different situations.
  *
- * 1) Compile Time Polymorphism -> Method Overriding/ Function Overloading, Operator Overloading
- * 2) Runtime Polymorphism -> Virtual Functions
+ * 1) Compile Time Polymorphism -> Function Overloading, Operator Overloading
+ * 2) Runtime Polymorphism -> Virtual Functions / Method Overriding
  *
  */
