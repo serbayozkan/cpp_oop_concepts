@@ -55,22 +55,25 @@ OBJECTS_DIR   = ./
 SOURCES       = ../oop_concepts/abstraction.cpp \
 		../oop_concepts/class_object.cpp \
 		../oop_concepts/encapsulation.cpp \
+		../oop_concepts/friend_class_function.cpp \
 		../oop_concepts/function_overloading.cpp \
 		../oop_concepts/function_overriding.cpp \
 		../oop_concepts/inheritance.cpp \
-		../oop_concepts/main.cpp \
 		../oop_concepts/operator_overloading.cpp \
-		../oop_concepts/polymorphism.cpp 
+		../oop_concepts/override_keyword.cpp 
 OBJECTS       = abstraction.o \
 		class_object.o \
 		encapsulation.o \
+		friend_class_function.o \
 		function_overloading.o \
 		function_overriding.o \
 		inheritance.o \
-		main.o \
 		operator_overloading.o \
-		polymorphism.o
-DIST          = /home/serbay/Qt/5.14.1/gcc_64/mkspecs/features/spec_pre.prf \
+		override_keyword.o
+DIST          = ../oop_concepts/main.txt \
+		../oop_concepts/polymorphism.txt \
+		../oop_concepts/static_dynamic_binding.txt \
+		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/common/unix.conf \
 		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/common/linux.conf \
 		/home/serbay/Qt/5.14.1/gcc_64/mkspecs/common/sanitize.conf \
@@ -277,12 +280,12 @@ DIST          = /home/serbay/Qt/5.14.1/gcc_64/mkspecs/features/spec_pre.prf \
 		../oop_concepts/oop_concepts.pro  ../oop_concepts/abstraction.cpp \
 		../oop_concepts/class_object.cpp \
 		../oop_concepts/encapsulation.cpp \
+		../oop_concepts/friend_class_function.cpp \
 		../oop_concepts/function_overloading.cpp \
 		../oop_concepts/function_overriding.cpp \
 		../oop_concepts/inheritance.cpp \
-		../oop_concepts/main.cpp \
 		../oop_concepts/operator_overloading.cpp \
-		../oop_concepts/polymorphism.cpp
+		../oop_concepts/override_keyword.cpp
 QMAKE_TARGET  = oop_concepts
 DESTDIR       = 
 TARGET        = oop_concepts
@@ -757,6 +760,9 @@ class_object.o: ../oop_concepts/class_object.cpp
 encapsulation.o: ../oop_concepts/encapsulation.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o encapsulation.o ../oop_concepts/encapsulation.cpp
 
+friend_class_function.o: ../oop_concepts/friend_class_function.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o friend_class_function.o ../oop_concepts/friend_class_function.cpp
+
 function_overloading.o: ../oop_concepts/function_overloading.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o function_overloading.o ../oop_concepts/function_overloading.cpp
 
@@ -766,14 +772,11 @@ function_overriding.o: ../oop_concepts/function_overriding.cpp
 inheritance.o: ../oop_concepts/inheritance.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o inheritance.o ../oop_concepts/inheritance.cpp
 
-main.o: ../oop_concepts/main.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../oop_concepts/main.cpp
-
 operator_overloading.o: ../oop_concepts/operator_overloading.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o operator_overloading.o ../oop_concepts/operator_overloading.cpp
 
-polymorphism.o: ../oop_concepts/polymorphism.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o polymorphism.o ../oop_concepts/polymorphism.cpp
+override_keyword.o: ../oop_concepts/override_keyword.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o override_keyword.o ../oop_concepts/override_keyword.cpp
 
 ####### Install
 
