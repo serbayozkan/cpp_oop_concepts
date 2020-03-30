@@ -11,6 +11,7 @@ SOURCES += \
         function_overloading.cpp \
         function_overriding.cpp \
         inheritance.cpp \
+        interface.cpp \
         operator_overloading.cpp \
         override_keyword.cpp
 

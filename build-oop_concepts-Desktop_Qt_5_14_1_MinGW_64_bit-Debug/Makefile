@@ -54,25 +54,36 @@ OBJECTS_DIR   = .
 SOURCES       = ..\oop_concepts\abstraction.cpp \
 		..\oop_concepts\class_object.cpp \
 		..\oop_concepts\encapsulation.cpp \
+		..\oop_concepts\friend_class_function.cpp \
 		..\oop_concepts\function_overloading.cpp \
-		..\oop_concepts\main.cpp \
+		..\oop_concepts\function_overriding.cpp \
+		..\oop_concepts\inheritance.cpp \
+		..\oop_concepts\interface.cpp \
 		..\oop_concepts\operator_overloading.cpp \
-		..\oop_concepts\polymorphism.cpp 
+		..\oop_concepts\override_keyword.cpp 
 OBJECTS       = abstraction.o \
 		class_object.o \
 		encapsulation.o \
+		friend_class_function.o \
 		function_overloading.o \
-		main.o \
+		function_overriding.o \
+		inheritance.o \
+		interface.o \
 		operator_overloading.o \
-		polymorphism.o
+		override_keyword.o
 
-DIST          =   ..\oop_concepts\abstraction.cpp \
+DIST          = main.txt \
+		polymorphism.txt \
+		static_dynamic_binding.txt  ..\oop_concepts\abstraction.cpp \
 		..\oop_concepts\class_object.cpp \
 		..\oop_concepts\encapsulation.cpp \
+		..\oop_concepts\friend_class_function.cpp \
 		..\oop_concepts\function_overloading.cpp \
-		..\oop_concepts\main.cpp \
+		..\oop_concepts\function_overriding.cpp \
+		..\oop_concepts\inheritance.cpp \
+		..\oop_concepts\interface.cpp \
 		..\oop_concepts\operator_overloading.cpp \
-		..\oop_concepts\polymorphism.cpp
+		..\oop_concepts\override_keyword.cpp
 QMAKE_TARGET  = oop_concepts
 DESTDIR        =  #avoid trailing-slash linebreak
 TARGET         = oop_concepts.exe
@@ -84,7 +95,7 @@ first: all
 all: Makefile  oop_concepts.exe
 
 oop_concepts.exe:  $(OBJECTS) 
-	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
+	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) @object_script.oop_concepts  $(LIBS)
 
 Makefile: ../oop_concepts/oop_concepts.pro C:/Qt/5.14.1/mingw73_64/mkspecs/win32-g++/qmake.conf C:/Qt/5.14.1/mingw73_64/mkspecs/features/spec_pre.prf \
 		C:/Qt/5.14.1/mingw73_64/mkspecs/qdevice.pri \
@@ -440,7 +451,7 @@ dist:
 	$(ZIP) oop_concepts.zip $(SOURCES) $(DIST) ..\oop_concepts\oop_concepts.pro C:\Qt\5.14.1\mingw73_64\mkspecs\features\spec_pre.prf C:\Qt\5.14.1\mingw73_64\mkspecs\qdevice.pri C:\Qt\5.14.1\mingw73_64\mkspecs\features\device_config.prf C:\Qt\5.14.1\mingw73_64\mkspecs\common\sanitize.conf C:\Qt\5.14.1\mingw73_64\mkspecs\common\gcc-base.conf C:\Qt\5.14.1\mingw73_64\mkspecs\common\g++-base.conf C:\Qt\5.14.1\mingw73_64\mkspecs\common\angle.conf C:\Qt\5.14.1\mingw73_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\5.14.1\mingw73_64\mkspecs\common\windows-vulkan.conf C:\Qt\5.14.1\mingw73_64\mkspecs\common\g++-win32.conf C:\Qt\5.14.1\mingw73_64\mkspecs\common\windows-desktop.conf C:\Qt\5.14.1\mingw73_64\mkspecs\qconfig.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3drender.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_charts.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_core.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_help.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_location.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_network.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_repparser.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_scxml.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_vulkan_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.14.1\mingw73_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.14.1\mingw73_64\mkspecs\features\qt_functions.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\qt_config.prf C:\Qt\5.14.1\mingw73_64\mkspecs\win32-g++\qmake.conf C:\Qt\5.14.1\mingw73_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\5.14.1\mingw73_64\mkspecs\features\exclusive_builds.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\toolchain.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\default_pre.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\win32\default_pre.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\resolve_config.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\default_post.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\win32\console.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\qml_debug.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\precompile_header.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\warn_on.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\qmake_use.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\file_copies.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\testcase_targets.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\exceptions.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\yacc.prf C:\Qt\5.14.1\mingw73_64\mkspecs\features\lex.prf ..\oop_concepts\oop_concepts.pro      
 
 clean: compiler_clean 
-	-$(DEL_FILE) abstraction.o class_object.o encapsulation.o function_overloading.o main.o operator_overloading.o polymorphism.o
+	-$(DEL_FILE) abstraction.o class_object.o encapsulation.o friend_class_function.o function_overloading.o function_overriding.o inheritance.o interface.o operator_overloading.o override_keyword.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -474,17 +485,26 @@ class_object.o: ../oop_concepts/class_object.cpp
 encapsulation.o: ../oop_concepts/encapsulation.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o encapsulation.o ..\oop_concepts\encapsulation.cpp
 
+friend_class_function.o: ../oop_concepts/friend_class_function.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o friend_class_function.o ..\oop_concepts\friend_class_function.cpp
+
 function_overloading.o: ../oop_concepts/function_overloading.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o function_overloading.o ..\oop_concepts\function_overloading.cpp
 
-main.o: ../oop_concepts/main.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ..\oop_concepts\main.cpp
+function_overriding.o: ../oop_concepts/function_overriding.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o function_overriding.o ..\oop_concepts\function_overriding.cpp
+
+inheritance.o: ../oop_concepts/inheritance.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o inheritance.o ..\oop_concepts\inheritance.cpp
+
+interface.o: ../oop_concepts/interface.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interface.o ..\oop_concepts\interface.cpp
 
 operator_overloading.o: ../oop_concepts/operator_overloading.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o operator_overloading.o ..\oop_concepts\operator_overloading.cpp
 
-polymorphism.o: ../oop_concepts/polymorphism.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o polymorphism.o ..\oop_concepts\polymorphism.cpp
+override_keyword.o: ../oop_concepts/override_keyword.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o override_keyword.o ..\oop_concepts\override_keyword.cpp
 
 ####### Install
 

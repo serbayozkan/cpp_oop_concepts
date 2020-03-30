@@ -8,6 +8,8 @@
 
 #include <iostream>
 
+#define ENABLE_THIS_MAIN      ( 0 )
+
 class main_class
 {
 private:
@@ -47,6 +49,7 @@ void global_func_display_main_class(main_class main)
     std::cout << "Global function reached main_class and var1:" << main.var1 << " var2:" << main.var2 << std::endl;
 }
 
+#if ENABLE_THIS_MAIN
 int main(void)
 {
     main_class mainClass(10, 20);
@@ -57,3 +60,4 @@ int main(void)
 
     return 0;
 }
+#endif
